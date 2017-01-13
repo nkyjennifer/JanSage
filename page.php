@@ -29,7 +29,7 @@
 </div>
 
 <?php
-    require('../shared/shared.php');
+    require('/shared.php');
     
     $nonces = getNonces();
     $amount = $_GET["amount"];
