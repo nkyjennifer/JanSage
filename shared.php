@@ -8,13 +8,12 @@
     
     // sign up at https://developer.sagepayments.com/ to get your own dev creds
     $developer = [
-        "ID" => "7SMmEF02WyC7H5TSdG1KssOQlwOOCagb",
-        "KEY" => "wtC5Ns0jbtiNA8sP"
+        "ID" => "ZvfqVDkt48S40GDUIXdZGtAjv85etOng",
+        "KEY" => "7oHiHB8tVrCj5ORb"
     ];
     
     $request = [
         "postbackUrl" => "https://www.example.com/myHandler.php", // https://requestb.in is great for playing with this
-        "environment" => "cert",
         "amount" => "1.00", // use 5.00 to simulate a decline
         "preAuth" => "false"
     ];
