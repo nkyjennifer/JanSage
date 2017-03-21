@@ -1,6 +1,6 @@
 <?php
 
-    require('http://bradyware.com/wp-content/themes/Brady_Ware_customWP/shared.php');
+    require('shared.php');
     
     $nonces = getNonces();
     $amount = $_GET["amount"];
