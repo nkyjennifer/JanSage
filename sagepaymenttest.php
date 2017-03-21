@@ -2,7 +2,11 @@
 <title>Sage Payments Static Page Test</title>
 </html>
 
-<script type="text/javascript" src="https://www.sagepayments.net/pay/1.0.0/js/pay.min.js"></script>
+<!-- PayJS 1.0.0 -->
+<!--<script type="text/javascript" src="https://www.sagepayments.net/pay/1.0.0/js/pay.min.js"></script>-->
+
+<!-- PayJS 1.0.1 -->
+<script type="text/javascript" src="https://www.sagepayments.net/pay/1.0.1/js/pay.min.js"></script>
 
 <div class="wrapper text-center">
     <h1>Dynamic</h1>
@@ -38,7 +42,7 @@
             amt = amt.toFixed(2);
 
             $.get(
-                "http://bradyware.com/Sage-Static-Test/auth.php",
+                "auth.php",
                 {
                     amount: amt,
                 },
@@ -53,12 +57,15 @@
                         elementId: "paymentDiv",
                         postbackUrl: authResp.postback,
                         salt: authResp.salt,
-                        addFakeData: true
+                        addFakeData: true,
+                        environment: "cert"
                     });
                     $UI.setCallback(function(resp) {
                         console.log(resp.getResponse());
                         $("#paymentResponse").text(
-                            resp.getResponse({ "json": true })
+                            //TH - Update to PaymentsJS 1.0.1 use ".getRawResponse()" instead of ".getResponse({ "json": true })".
+                            // resp.getResponse({ "json": true })
+                            resp.getRawResponse()
                         );
                         $("#paymentButton").prop('disabled', false);
                     });
